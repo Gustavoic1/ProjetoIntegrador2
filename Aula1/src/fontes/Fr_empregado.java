@@ -19,7 +19,7 @@ public class Fr_empregado extends javax.swing.JFrame {
 
         initComponents();
         try {
-          con = DriverManager.getConnection("jdbc:mysql://localhost:3307/turmaa","root","");
+          con = DriverManager.getConnection("jdbc:mysql://localhost:3306/turmaa","root","");
           st =(Statement)con.createStatement();
             JOptionPane.showMessageDialog(null,"Conectado com sucesso");
         }
@@ -198,7 +198,7 @@ public class Fr_empregado extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try {
-          con = DriverManager.getConnection("jdbc:mysql://localhost:3307/turmaa","root","");
+          con = DriverManager.getConnection("jdbc:mysql://localhost:3306/turmaa","root","");
           st =(Statement)con.createStatement();
             JOptionPane.showMessageDialog(null,"Conectado com sucesso");
         }
