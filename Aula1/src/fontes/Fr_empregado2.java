@@ -4,37 +4,34 @@
  * and open the template in the editor.
  */
 package fontes;
-
 import java.sql.DriverManager;
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
-
 /**
  *
  * @author romulo.fsmaia
  */
 public class Fr_empregado2 extends javax.swing.JFrame {
-
     public Connection con;
     public Statement st;
     public ResultSet resultado = null;
-    int a;
-
+        int a;
     /**
      * Creates new form Fr_empregado2
      */
     public Fr_empregado2() {
         initComponents();
-        try {
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/turmaa", "root", "");
-            st = (Statement) con.createStatement();
-            JOptionPane.showMessageDialog(null, "Conectado com sucesso");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "não Conectado");
+    try {
+          con = DriverManager.getConnection("jdbc:mysql://localhost:3306/turma","root","");
+          st =(Statement)con.createStatement();
+         JOptionPane.showMessageDialog(null,"Conectado com sucesso");
         }
-
+        catch (Exception e) {
+        JOptionPane.showMessageDialog(null,"não Conectado");
+        }
+        
     }
 
     /**
@@ -189,11 +186,6 @@ public class Fr_empregado2 extends javax.swing.JFrame {
                 jTextField2FocusLost(evt);
             }
         });
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagem/foto2.jpg"))); // NOI18N
         jLabel6.setText("Foto");
@@ -280,23 +272,24 @@ public class Fr_empregado2 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        try {
-            String minhasql = "select * from empregado where nome like "
-                    + "'" + jTextField1.getText() + "%' order by nome";
-            resultado = st.executeQuery(minhasql);
-            jTextArea1.setText("");
-            while (resultado.next()) {
-                jTextArea1.append(resultado.getString("id") + " - "
-                        + resultado.getString("nome") + "\n");
-
-                // jTextField1.setText(resultado.getString("nome"));
-                // jTextField3.setText(resultado.getString("endereco"));
-                // jTextField2.setText(resultado.getString("cidade"));
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Resgistro não existe");
+      try {   
+          String minhasql = "select * from empregado where nome like "
+                  +"'"+jTextField1.getText()+"%' order by nome";
+          resultado = st.executeQuery(minhasql);
+          jTextArea1.setText("");
+          while(resultado.next()){
+              jTextArea1.append(resultado.getString("id")+" - "+
+                      resultado.getString("nome")+"\n");
+              
+             // jTextField1.setText(resultado.getString("nome"));
+             // jTextField3.setText(resultado.getString("endereco"));
+             // jTextField2.setText(resultado.getString("cidade"));
+             }     
         }
-
+        catch (Exception e) {
+          JOptionPane.showMessageDialog(null,"Resgistro não existe ="+e);
+        }    
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -308,90 +301,81 @@ public class Fr_empregado2 extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        try {
-            String nome, cidade, endereco;
-            nome = jTextField3.getText().trim();
-            if (!nome.equals("")) {
-                cidade = jTextField5.getText();
-                endereco = jTextField4.getText();
-                String minhasql;
-                if (a == 1) {
-                    minhasql = "insert into empregado (nome,cidade,endereco) value ('"
-                            + nome + "','" + cidade + "','" + endereco + "')";
-                    a = 0;
-                } else {
-                    minhasql = "update empregado "
-                            + "set nome = '"
-                            + nome + "',endereco = '"
-                            + endereco + "',cidade ='"
-                            + cidade + "' where id = " + jTextField2.getText();
-                }
-                st.executeUpdate(minhasql);
-                JOptionPane.showMessageDialog(null, "Registro Gravado");
-                jTextField2.setEnabled(true);
-                jTabbedPane2.setSelectedIndex(0);
-                jTextField3.setText("");
+     try {  
+          String nome,cidade, endereco;
+          nome = jTextField3.getText().trim();
+          if (!nome.equals("")) {
+          cidade = jTextField5.getText();
+          endereco = jTextField4.getText();
+          String minhasql;
+          if (a==1) {
+                  minhasql = "insert into empregado (nome,cidade,endereco) value ('"
+                  +nome+"','"+cidade+"','"+endereco+"')";
+                  a=0;
+          } else {          
+                  minhasql = "update empregado "
+                  + "set nome = '"
+                  +nome+"',endereco = '"
+                  +endereco+"',cidade ='"
+                  +cidade+"' where id = "+jTextField2.getText();
+          }
+          st.executeUpdate(minhasql);
+          JOptionPane.showMessageDialog(null,"Registro Gravado");
+        jTextField2.setEnabled(true);
+        jTabbedPane2.setSelectedIndex(0);
+        jTextField3.setText("");
                 jTextField4.setText("");
-                jTextField5.setText("");
-            } else {
-                JOptionPane.showMessageDialog(null, "O nome não pode ser nulo");
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "não Gravado");
+                        jTextField5.setText("");
+         } else {
+             JOptionPane.showMessageDialog(null,"O nome não pode ser nulo"); 
+          }
+        }
+        catch (Exception e) {
+          JOptionPane.showMessageDialog(null,"não Gravado");
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTextField2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusLost
         // TODO add your handling code here:
-        try {
-            String minhasql = "select * from empregado where id = "
-                    + jTextField2.getText();
-            resultado = st.executeQuery(minhasql);
-            if (resultado.next()) {
-                jTextField3.setText(resultado.getString("nome"));
-                jTextField4.setText(resultado.getString("endereco"));
-                jTextField5.setText(resultado.getString("cidade"));
-            } else {
-                JOptionPane.showMessageDialog(null, "Registro não encontrado");
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Resgistro não existe");
+         try {   
+          String minhasql = "select * from empregado where id = "
+                  +jTextField2.getText();
+          resultado = st.executeQuery(minhasql);
+          if(resultado.next()){
+              jTextField3.setText(resultado.getString("nome"));
+              jTextField4.setText(resultado.getString("endereco"));
+              jTextField5.setText(resultado.getString("cidade"));
+             }
+          else {
+           JOptionPane.showMessageDialog(null,"Registro não encontrado");
+          }        
         }
+        catch (Exception e) {
+          JOptionPane.showMessageDialog(null,"Resgistro não existe = "+e);
+        }  
     }//GEN-LAST:event_jTextField2FocusLost
 
     private void jTabbedPane2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTabbedPane2FocusLost
         // TODO add your handling code here:
-        jTextArea1.setText("");
+                  jTextArea1.setText("");
     }//GEN-LAST:event_jTabbedPane2FocusLost
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        try {
-
-            String minhasql = "delete from empregado where id = " + jTextField2.getText();
-
-            st.executeUpdate(minhasql);
-
-            JOptionPane.showMessageDialog(null, "Registro Excluido");
-
-            jTabbedPane2.setSelectedIndex(0);
-
-            jTextField3.setText("");
-
-            jTextField4.setText("");
-
-            jTextField5.setText("");
-
-        } catch (Exception e) {
-
-            JOptionPane.showMessageDialog(null, "Resgistro não existe");
-
+       try {   
+          String minhasql = "delete from empregado where id = "+jTextField2.getText();
+          st.executeUpdate(minhasql);
+          JOptionPane.showMessageDialog(null,"Registro Excluido");
+         jTabbedPane2.setSelectedIndex(0);
+         jTextField3.setText("");
+                jTextField4.setText("");
+                        jTextField5.setText("");
         }
+        catch (Exception e) {
+          JOptionPane.showMessageDialog(null,"Resgistro não existe "+e);
+        }    
+        
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
 
     /**
      * @param args the command line arguments
