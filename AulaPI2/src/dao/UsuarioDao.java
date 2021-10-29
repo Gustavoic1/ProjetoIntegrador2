@@ -27,13 +27,13 @@ public class UsuarioDao {
     
  public void insert(Usuario usuario)throws SQLException{
    
-     String sql = "insert into usuario (users, pass) values ('"+usuario.getUsuario()+"', '"+usuario.getSenha()+"'); ";
+     String sql = "insert into login (usuario, senha) values ('"+usuario.getUsuario()+"', '"+usuario.getSenha()+"'); ";
      st = con.prepareStatement(sql);
 
     }
 
     public boolean existePorUsuarioESenha(Usuario usuario) throws SQLException {
-        String sql ="select * from usuario where users = '"+usuario.getUsuario()+"' and pass = '"+usuario.getSenha()+"';";
+        String sql ="select * from login where usuario = '"+usuario.getUsuario()+"' and senha = '"+usuario.getSenha()+"';";
          st = con.prepareStatement(sql);
          st.execute(sql);
          

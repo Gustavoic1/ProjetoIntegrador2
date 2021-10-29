@@ -35,7 +35,7 @@ public class TelaLogin extends javax.swing.JFrame {
     public TelaLogin() {
         initComponents();
         try {
-          con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tutorial","root","");
+          con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rodrigo","root","");
           st =(Statement)con.createStatement();
             //JOptionPane.showMessageDialog(null,"Conectado com sucesso");
         }
