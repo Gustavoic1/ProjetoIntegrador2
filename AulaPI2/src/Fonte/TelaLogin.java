@@ -35,7 +35,7 @@ public class TelaLogin extends javax.swing.JFrame {
     public TelaLogin() {
         initComponents();
         try {
-          con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rodrigo","root","");
+          con = DriverManager.getConnection("jdbc:mysql://localhost:3306/projetopi","root","");
           st =(Statement)con.createStatement();
             //JOptionPane.showMessageDialog(null,"Conectado com sucesso");
         }
@@ -197,7 +197,8 @@ public class TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+            // TODO add your handling code here:
+            System.exit(0);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

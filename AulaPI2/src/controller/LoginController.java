@@ -5,8 +5,8 @@
  */
 package controller;
 
-import Fonte.Sistema;
 import Fonte.TelaLogin;
+import Fonte.TelaPrincipal;
 import dao.UsuarioDao;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -28,7 +28,7 @@ public class LoginController {
     public Statement st;
     public ResultSet resultado = null;
     
-    private TelaLogin view;
+    private final TelaLogin view;
     
 
     public LoginController(TelaLogin view) {
@@ -45,7 +45,7 @@ public class LoginController {
         //verificar se existe no banco de dados
         
        try {
-          con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rodrigo","root","");
+          con = DriverManager.getConnection("jdbc:mysql://localhost:3306/projetopi","root","");
           st =(Statement)con.createStatement();
             //JOptionPane.showMessageDialog(null,"Conectado com sucesso");
         }
@@ -60,7 +60,7 @@ public class LoginController {
         //se existe direciona para menu
         
         if (existe) {
-            Sistema telaDeMenu = new Sistema();
+            TelaPrincipal telaDeMenu = new TelaPrincipal();
             telaDeMenu.setVisible(true);
             
         }else{
