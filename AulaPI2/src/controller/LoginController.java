@@ -5,8 +5,8 @@
  */
 package controller;
 
-import Fonte.TelaLogin;
-import Fonte.TelaPrincipal;
+import Telas.Fr_Login;
+import Telas.Fr_Principal;
 import dao.UsuarioDao;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -28,10 +28,10 @@ public class LoginController {
     public Statement st;
     public ResultSet resultado = null;
     
-    private final TelaLogin view;
+    private final Fr_Login view;
     
 
-    public LoginController(TelaLogin view) {
+    public LoginController(Fr_Login view) {
         this.view = view;
     }
 
@@ -60,7 +60,7 @@ public class LoginController {
         //se existe direciona para menu
         
         if (existe) {
-            TelaPrincipal telaDeMenu = new TelaPrincipal();
+            Fr_Principal telaDeMenu = new Fr_Principal();
             telaDeMenu.setVisible(true);
             
         }else{
