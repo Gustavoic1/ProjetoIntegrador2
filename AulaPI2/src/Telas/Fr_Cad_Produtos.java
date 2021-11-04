@@ -49,7 +49,7 @@ public class Fr_Cad_Produtos extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel3.setBackground(new java.awt.Color(153, 102, 255));
 
@@ -273,6 +273,7 @@ public class Fr_Cad_Produtos extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed

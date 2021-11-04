@@ -116,7 +116,7 @@ public class Fr_Principal extends javax.swing.JFrame {
         jButton8.setBackground(new java.awt.Color(0, 102, 102));
         jButton8.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("Cofigurações");
+        jButton8.setText("Usuarios");
         jButton8.setToolTipText("");
         jButton8.setActionCommand("");
         jButton8.setBorder(null);
@@ -140,10 +140,10 @@ public class Fr_Principal extends javax.swing.JFrame {
                     .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -156,9 +156,9 @@ public class Fr_Principal extends javax.swing.JFrame {
                 .addComponent(jButton6)
                 .addGap(28, 28, 28)
                 .addComponent(jButton7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 209, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -188,6 +188,7 @@ public class Fr_Principal extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -218,6 +219,8 @@ public class Fr_Principal extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
+        Fr_Cad_Funcionarios telaFun = new Fr_Cad_Funcionarios();
+            telaFun.setVisible(true);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     /**

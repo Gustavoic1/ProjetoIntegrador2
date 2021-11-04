@@ -5,6 +5,7 @@
  */
 package Telas;
 
+
 /**
  *
  * @author gusta
@@ -14,6 +15,7 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
     /**
      * Creates new form Fr_Cad_Clientes
      */
+    
     public Fr_Cad_Clientes() {
         initComponents();
     }
@@ -51,7 +53,7 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
         campoFeminino = new javax.swing.JRadioButton();
         botaoSalvar1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setForeground(new java.awt.Color(0, 0, 0));
@@ -337,9 +339,8 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
                         .addComponent(botaoSalvar)
                         .addComponent(botaoSalvar1))
                     .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -354,6 +355,7 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void campoImagemClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_campoImagemClienteMouseClicked
@@ -427,6 +429,7 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
                 new Fr_Cad_Clientes().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

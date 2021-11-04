@@ -50,9 +50,9 @@ public class Fr_Cad_Funcionarios extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(153, 102, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-ok-24.png"))); // NOI18N
@@ -81,7 +81,56 @@ public class Fr_Cad_Funcionarios extends javax.swing.JFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
                 "Nome", "Login"
@@ -102,12 +151,12 @@ public class Fr_Cad_Funcionarios extends javax.swing.JFrame {
         jButton8.setText("Editar");
 
         jLabel19.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 18)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel19.setText("CADASTRO DE FUNCIONÁRIOS");
         jLabel19.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jPanel10.setBackground(new java.awt.Color(153, 102, 255));
+        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-walter-white-160.png"))); // NOI18N
 
@@ -117,10 +166,10 @@ public class Fr_Cad_Funcionarios extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("<html>\n<p white>Nome:</p>\n</html>");
 
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("E-mail:");
 
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
@@ -129,10 +178,10 @@ public class Fr_Cad_Funcionarios extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Telefone:");
 
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Login:");
 
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
@@ -141,10 +190,10 @@ public class Fr_Cad_Funcionarios extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Senha:");
 
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Confirme a senha:");
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
@@ -225,17 +274,16 @@ public class Fr_Cad_Funcionarios extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton3)
                         .addGap(74, 74, 74)
                         .addComponent(jButton8)
                         .addGap(104, 104, 104))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(31, 31, 31))))
             .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
@@ -244,9 +292,11 @@ public class Fr_Cad_Funcionarios extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -278,6 +328,7 @@ public class Fr_Cad_Funcionarios extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

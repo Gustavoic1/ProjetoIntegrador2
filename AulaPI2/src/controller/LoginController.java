@@ -16,56 +16,51 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import model.Usuario;
 
-
-
 /**
  *
  * @author rohas
  */
 public class LoginController {
-    
+
     public Connection con;
     public Statement st;
     public ResultSet resultado = null;
-    
+
     private final Fr_Login view;
-    
 
     public LoginController(Fr_Login view) {
         this.view = view;
     }
 
     public void autenticar() throws SQLException {
-        
+
         //buscar um usuario da View
         String usuario = view.getjTextField1().getText();
         String senha = view.getjPasswordField1().getText();
-        
+
         Usuario usuarioAtq = new Usuario(usuario, senha);
         //verificar se existe no banco de dados
-        
-       try {
-          con = DriverManager.getConnection("jdbc:mysql://localhost:3306/projetopi","root","");
-          st =(Statement)con.createStatement();
+
+        try {
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/projetopi", "root", "");
+            st = (Statement) con.createStatement();
             //JOptionPane.showMessageDialog(null,"Conectado com sucesso");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "não Conectado");
         }
-        catch (SQLException e) {
-             JOptionPane.showMessageDialog(null,"não Conectado");
-        }
-       
-       UsuarioDao usuarioDao = new UsuarioDao(con);
-       
-       boolean existe = usuarioDao.existePorUsuarioESenha(usuarioAtq);
-       
+
+        UsuarioDao usuarioDao = new UsuarioDao(con);
+
+        boolean existe = usuarioDao.existePorUsuarioESenha(usuarioAtq);
+
         //se existe direciona para menu
-        
         if (existe) {
             Fr_Principal telaDeMenu = new Fr_Principal();
             telaDeMenu.setVisible(true);
-            
-        }else{
+
+        } else {
             JOptionPane.showMessageDialog(view, "Usuario ou senha invalidos");
         }
     }
-    
+
 }
