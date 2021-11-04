@@ -55,18 +55,18 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setBackground(new java.awt.Color(204, 204, 255));
         jPanel5.setForeground(new java.awt.Color(0, 0, 0));
         jPanel5.setAutoscrolls(true);
 
-        jLabel10.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel10.setBackground(new java.awt.Color(204, 204, 255));
         jLabel10.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("CADASTRO DE CLIENTES");
         jLabel10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setBackground(new java.awt.Color(204, 204, 255));
 
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pesquisar.png"))); // NOI18N
@@ -127,7 +127,7 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable3);
 
-        jPanel12.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel12.setBackground(new java.awt.Color(204, 204, 255));
         jPanel12.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         jLabel16.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
@@ -234,7 +234,7 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
                             .addComponent(jLabel15)))))
         );
 
-        botaoExcluir.setBackground(new java.awt.Color(255, 255, 255));
+        botaoExcluir.setBackground(new java.awt.Color(204, 204, 255));
         botaoExcluir.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         botaoExcluir.setText("Excluir");
         botaoExcluir.addActionListener(new java.awt.event.ActionListener() {
@@ -243,7 +243,7 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
             }
         });
 
-        botaoSalvar.setBackground(new java.awt.Color(255, 255, 255));
+        botaoSalvar.setBackground(new java.awt.Color(204, 204, 255));
         botaoSalvar.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         botaoSalvar.setText("Editar");
         botaoSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -252,15 +252,15 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
             }
         });
 
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setBackground(new java.awt.Color(204, 204, 255));
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Sexo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(0, 0, 0))); // NOI18N
         jPanel6.setForeground(new java.awt.Color(0, 0, 0));
 
-        campoMasculino.setBackground(new java.awt.Color(255, 255, 255));
+        campoMasculino.setBackground(new java.awt.Color(204, 204, 255));
         campoMasculino.setForeground(new java.awt.Color(0, 0, 0));
         campoMasculino.setText("Masculino");
 
-        campoFeminino.setBackground(new java.awt.Color(255, 255, 255));
+        campoFeminino.setBackground(new java.awt.Color(204, 204, 255));
         campoFeminino.setForeground(new java.awt.Color(0, 0, 0));
         campoFeminino.setText("Feminino");
         campoFeminino.addActionListener(new java.awt.event.ActionListener() {
@@ -287,7 +287,7 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
                 .addComponent(campoFeminino))
         );
 
-        botaoSalvar1.setBackground(new java.awt.Color(255, 255, 255));
+        botaoSalvar1.setBackground(new java.awt.Color(204, 204, 255));
         botaoSalvar1.setFont(new java.awt.Font("SansSerif", 0, 13)); // NOI18N
         botaoSalvar1.setText("Salvar");
         botaoSalvar1.addActionListener(new java.awt.event.ActionListener() {

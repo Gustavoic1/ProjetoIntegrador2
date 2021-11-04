@@ -52,9 +52,10 @@ public class Fr_Cad_Funcionarios extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jButton1.setBackground(new java.awt.Color(204, 204, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-ok-24.png"))); // NOI18N
         jButton1.setText("Cadastrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -63,6 +64,7 @@ public class Fr_Cad_Funcionarios extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(204, 204, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-caixa-de-selecção-seleccionada-2-24.png"))); // NOI18N
         jButton2.setText("Salvar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -71,6 +73,7 @@ public class Fr_Cad_Funcionarios extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(204, 204, 255));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-excluir-24.png"))); // NOI18N
         jButton3.setText("Excluir");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -147,16 +150,18 @@ public class Fr_Cad_Funcionarios extends javax.swing.JFrame {
         jTable2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jScrollPane3.setViewportView(jTable2);
 
+        jButton8.setBackground(new java.awt.Color(204, 204, 255));
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-editar-24.png"))); // NOI18N
         jButton8.setText("Editar");
 
+        jLabel19.setBackground(new java.awt.Color(204, 204, 255));
         jLabel19.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 18)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel19.setText("CADASTRO DE FUNCIONÁRIOS");
         jLabel19.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel10.setBackground(new java.awt.Color(204, 204, 255));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-walter-white-160.png"))); // NOI18N
 
