@@ -47,6 +47,11 @@ public class Fr_Principal extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jPanel1FocusLost(evt);
+            }
+        });
 
         jPanel5.setBackground(new java.awt.Color(0, 102, 102));
         jPanel5.setForeground(new java.awt.Color(102, 102, 102));
@@ -172,7 +177,7 @@ public class Fr_Principal extends javax.swing.JFrame {
         );
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel1.setText("Historico de Vendas ________________________");
+        jLabel1.setText("Historico de Transações ________________________");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -192,6 +197,7 @@ public class Fr_Principal extends javax.swing.JFrame {
         );
 
         jScrollPane1.setBorder(null);
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         jTable1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -237,15 +243,15 @@ public class Fr_Principal extends javax.swing.JFrame {
                     .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 6, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(choice1, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                                .addComponent(choice2, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
-                                .addGap(41, 41, 41)
-                                .addComponent(choice3, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(16, 16, 16)))))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(choice1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(choice2, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(116, 116, 116)
+                        .addComponent(choice3, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -311,6 +317,18 @@ public class Fr_Principal extends javax.swing.JFrame {
             telaFun.setVisible(true);
     }//GEN-LAST:event_jButton8ActionPerformed
 
+    private void jPanel1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPanel1FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel1FocusLost
+
+     /*void setColor(JPanel panel) {
+         panel.setBackground(new Color([0,102,102]));
+    } 
+     
+     void resetColor(JPanel panel) {
+         panel.setBackground(new Color([0,102,102]));
+     }*/
+    
     /**
      * @param args the command line arguments
      */
