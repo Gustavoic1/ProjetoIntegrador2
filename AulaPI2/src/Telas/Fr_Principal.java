@@ -299,7 +299,7 @@ public class Fr_Principal extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        Fr_Cad_Produtos telaP = new Fr_Cad_Produtos();
+        Fr_Vendas telaP = new Fr_Vendas();
             telaP.setVisible(true);
         
     }//GEN-LAST:event_jButton6ActionPerformed
