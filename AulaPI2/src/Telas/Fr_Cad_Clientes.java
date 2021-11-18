@@ -6,15 +6,10 @@
 package Telas;
 
 import controller.CadastroClienteController;
-import dao.ClientesDao;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
-import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import model.Clientes;
 
 
 
@@ -23,6 +18,7 @@ import model.Clientes;
  * @author gusta
  */
 public class Fr_Cad_Clientes extends javax.swing.JFrame {
+    
 
     private final CadastroClienteController controller;
 
@@ -413,8 +409,9 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
 
     private void botaoSalvar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvar1ActionPerformed
          // TODO add your handling code here:
-        controller.salvaCliente();      
-         
+        controller.salvaCliente(); 
+        
+        limparCampo();         
     }//GEN-LAST:event_botaoSalvar1ActionPerformed
 
     /**
@@ -485,6 +482,12 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
         this.telefonecliente = telefonecliente;
     }
     
+    private void limparCampo(){
+    nomecliente.setText(null);
+    cpfcliente.setText(null);
+    emailcliente.setText(null);
+    telefonecliente.setText(null);
+    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
