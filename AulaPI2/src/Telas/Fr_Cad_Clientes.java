@@ -5,6 +5,18 @@
  */
 package Telas;
 
+import controller.CadastroClienteController;
+import dao.ClientesDao;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import model.Clientes;
+
+
 
 /**
  *
@@ -12,12 +24,15 @@ package Telas;
  */
 public class Fr_Cad_Clientes extends javax.swing.JFrame {
 
+    private final CadastroClienteController controller;
+
     /**
      * Creates new form Fr_Cad_Clientes
      */
     
     public Fr_Cad_Clientes() {
         initComponents();
+        controller = new CadastroClienteController(this);
     }
 
     /**
@@ -41,11 +56,11 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
         campoImagemCliente = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        campoEmail = new javax.swing.JTextField();
-        campoNome1 = new javax.swing.JTextField();
-        campoNome = new javax.swing.JTextField();
+        nomecliente = new javax.swing.JTextField();
+        cpfcliente = new javax.swing.JTextField();
+        emailcliente = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        campoNome2 = new javax.swing.JTextField();
+        telefonecliente = new javax.swing.JTextField();
         botaoExcluir = new javax.swing.JButton();
         botaoSalvar = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
@@ -152,21 +167,21 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Nome:");
 
-        campoEmail.addActionListener(new java.awt.event.ActionListener() {
+        nomecliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoEmailActionPerformed(evt);
+                nomeclienteActionPerformed(evt);
             }
         });
 
-        campoNome1.addActionListener(new java.awt.event.ActionListener() {
+        cpfcliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoNome1ActionPerformed(evt);
+                cpfclienteActionPerformed(evt);
             }
         });
 
-        campoNome.addActionListener(new java.awt.event.ActionListener() {
+        emailcliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoNomeActionPerformed(evt);
+                emailclienteActionPerformed(evt);
             }
         });
 
@@ -174,9 +189,9 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Telefone:");
 
-        campoNome2.addActionListener(new java.awt.event.ActionListener() {
+        telefonecliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoNome2ActionPerformed(evt);
+                telefoneclienteActionPerformed(evt);
             }
         });
 
@@ -192,12 +207,12 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
                         .addGap(38, 38, 38)
                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(nomecliente, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addComponent(jLabel15)
                         .addGap(4, 4, 4)
-                        .addComponent(campoNome2))
+                        .addComponent(telefonecliente))
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -205,8 +220,8 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
                             .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(campoNome, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                            .addComponent(campoNome1)))))
+                            .addComponent(emailcliente, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                            .addComponent(cpfcliente)))))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,19 +233,19 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(campoEmail)
+                            .addComponent(nomecliente)
                             .addComponent(jLabel12))
                         .addGap(8, 8, 8)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(campoNome1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cpfcliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel18))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16)
-                            .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(emailcliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(campoNome2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(telefonecliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel15)))))
         );
 
@@ -363,21 +378,21 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_campoImagemClienteMouseClicked
 
-    private void campoEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoEmailActionPerformed
+    private void nomeclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeclienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoEmailActionPerformed
+    }//GEN-LAST:event_nomeclienteActionPerformed
 
-    private void campoNome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNome1ActionPerformed
+    private void cpfclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpfclienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoNome1ActionPerformed
+    }//GEN-LAST:event_cpfclienteActionPerformed
 
-    private void campoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNomeActionPerformed
+    private void emailclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailclienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoNomeActionPerformed
+    }//GEN-LAST:event_emailclienteActionPerformed
 
-    private void campoNome2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNome2ActionPerformed
+    private void telefoneclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefoneclienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoNome2ActionPerformed
+    }//GEN-LAST:event_telefoneclienteActionPerformed
 
     private void botaoExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirActionPerformed
 
@@ -391,9 +406,15 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
     private void campoFemininoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoFemininoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoFemininoActionPerformed
+    
+    public Connection con;
+    public Statement st;
+    public ResultSet resultado = null;
 
     private void botaoSalvar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvar1ActionPerformed
-        // TODO add your handling code here:
+         // TODO add your handling code here:
+        controller.salvaCliente();      
+         
     }//GEN-LAST:event_botaoSalvar1ActionPerformed
 
     /**
@@ -432,18 +453,50 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
         
     }
 
+    public JTextField getCpfcliente() {
+        return cpfcliente;
+    }
+
+    public void setCpfcliente(JTextField cpfcliente) {
+        this.cpfcliente = cpfcliente;
+    }
+
+    public JTextField getEmailcliente() {
+        return emailcliente;
+    }
+
+    public void setEmailcliente(JTextField emailcliente) {
+        this.emailcliente = emailcliente;
+    }
+
+    public JTextField getNomecliente() {
+        return nomecliente;
+    }
+
+    public void setNomecliente(JTextField nomecliente) {
+        this.nomecliente = nomecliente;
+    }
+
+    public JTextField getTelefonecliente() {
+        return telefonecliente;
+    }
+
+    public void setTelefonecliente(JTextField telefonecliente) {
+        this.telefonecliente = telefonecliente;
+    }
+    
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoExcluir;
     private javax.swing.JButton botaoSalvar;
     private javax.swing.JButton botaoSalvar1;
-    private javax.swing.JTextField campoEmail;
     private javax.swing.JRadioButton campoFeminino;
     private javax.swing.JLabel campoImagemCliente;
     private javax.swing.JRadioButton campoMasculino;
-    private javax.swing.JTextField campoNome;
-    private javax.swing.JTextField campoNome1;
-    private javax.swing.JTextField campoNome2;
     private javax.swing.JTextField campoPesquisar;
+    private javax.swing.JTextField cpfcliente;
+    private javax.swing.JTextField emailcliente;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel15;
@@ -456,5 +509,7 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable3;
+    private javax.swing.JTextField nomecliente;
+    private javax.swing.JTextField telefonecliente;
     // End of variables declaration//GEN-END:variables
 }
