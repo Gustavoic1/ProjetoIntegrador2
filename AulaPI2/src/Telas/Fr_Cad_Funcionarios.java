@@ -5,17 +5,24 @@
  */
 package Telas;
 
+
+import controller.CadastroFuncionarioController;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 /**
  *
  * @author gusta
  */
 public class Fr_Cad_Funcionarios extends javax.swing.JFrame {
-
+    
+      private final CadastroFuncionarioController controller;
+      
     /**
      * Creates new form Fr_Cad_Funcionarios
      */
     public Fr_Cad_Funcionarios() {
         initComponents();
+        controller = new CadastroFuncionarioController(this);
     }
 
     /**
@@ -36,19 +43,19 @@ public class Fr_Cad_Funcionarios extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        NomeFunc = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        EmailFunc = new javax.swing.JTextField();
+        TeleFunc = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        LoginFunc = new javax.swing.JTextField();
+        SenhaFunc = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        ConfirmSenhaFunc = new javax.swing.JTextField();
         campoMasculino = new javax.swing.JRadioButton();
         campoFeminino = new javax.swing.JRadioButton();
 
@@ -165,9 +172,9 @@ public class Fr_Cad_Funcionarios extends javax.swing.JFrame {
 
         jPanel10.setBackground(new java.awt.Color(204, 204, 255));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        NomeFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                NomeFuncActionPerformed(evt);
             }
         });
 
@@ -177,9 +184,9 @@ public class Fr_Cad_Funcionarios extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("E-mail:");
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        TeleFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                TeleFuncActionPerformed(evt);
             }
         });
 
@@ -189,9 +196,9 @@ public class Fr_Cad_Funcionarios extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Login:");
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        LoginFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                LoginFuncActionPerformed(evt);
             }
         });
 
@@ -237,18 +244,18 @@ public class Fr_Cad_Funcionarios extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField2)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(EmailFunc)
+                        .addComponent(NomeFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TeleFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(SenhaFunc, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(LoginFunc, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(jPanel10Layout.createSequentialGroup()
                             .addComponent(campoMasculino)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(campoFeminino))
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(ConfirmSenhaFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel10Layout.setVerticalGroup(
@@ -259,27 +266,27 @@ public class Fr_Cad_Funcionarios extends javax.swing.JFrame {
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(NomeFunc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EmailFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TeleFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LoginFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SenhaFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ConfirmSenhaFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
@@ -364,24 +371,43 @@ public class Fr_Cad_Funcionarios extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        
+        if(NomeFunc.getText().equals("") || EmailFunc.getText().equals("") || TeleFunc.getText().equals("")){
+            
+            JOptionPane.showMessageDialog(null, "Nenhum campo pode estar em branco!!");
+            
+        }else{
+           if (SenhaFunc.getText().equals(ConfirmSenhaFunc.getText())) {
+               
+                controller.salvaFuncionario();
+                controller.salvaUsuario();           
+                
+        } else {
+                JOptionPane.showMessageDialog(null, "Senha não corresponde!");
+        } 
+        }
+        
+        limparCampo();
+         
+
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void NomeFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NomeFuncActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_NomeFuncActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void TeleFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TeleFuncActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_TeleFuncActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void LoginFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginFuncActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_LoginFuncActionPerformed
 
     private void campoFemininoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoFemininoActionPerformed
         // TODO add your handling code here:
@@ -422,7 +448,62 @@ public class Fr_Cad_Funcionarios extends javax.swing.JFrame {
         });
     }
 
+    public JTextField getEmailFunc() {
+        return EmailFunc;
+    }
+
+    public void setEmailFunc(JTextField EmailFunc) {
+        this.EmailFunc = EmailFunc;
+    }
+
+    public JTextField getNomeFunc() {
+        return NomeFunc;
+    }
+
+    public void setNomeFunc(JTextField NomeFunc) {
+        this.NomeFunc = NomeFunc;
+    }
+
+    public JTextField getTeleFunc() {
+        return TeleFunc;
+    }
+
+    public void setTeleFunc(JTextField TeleFunc) {
+        this.TeleFunc = TeleFunc;
+    }
+
+    public JTextField getLoginFunc() {
+        return LoginFunc;
+    }
+
+    public void setLoginFunc(JTextField LoginFunc) {
+        this.LoginFunc = LoginFunc;
+    }
+
+    public JTextField getSenhaFunc() {
+        return SenhaFunc;
+    }
+
+    public void setSenhaFunc(JTextField SenhaFunc) {
+        this.SenhaFunc = SenhaFunc;
+    }
+    
+    private void limparCampo(){
+    NomeFunc.setText(null);
+    EmailFunc.setText(null);
+    TeleFunc.setText(null);
+    LoginFunc.setText(null);
+    SenhaFunc.setText(null);
+    ConfirmSenhaFunc.setText(null);
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField ConfirmSenhaFunc;
+    private javax.swing.JTextField EmailFunc;
+    private javax.swing.JTextField LoginFunc;
+    private javax.swing.JTextField NomeFunc;
+    private javax.swing.JTextField SenhaFunc;
+    private javax.swing.JTextField TeleFunc;
     private javax.swing.JRadioButton campoFeminino;
     private javax.swing.JRadioButton campoMasculino;
     private javax.swing.JButton jButton1;
@@ -441,11 +522,5 @@ public class Fr_Cad_Funcionarios extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel10;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
 }

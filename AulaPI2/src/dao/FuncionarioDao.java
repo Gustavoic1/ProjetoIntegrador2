@@ -7,10 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
-import model.Clientes;
+import model.Funcionarios;
 
 
-public class ClientesDao {
+public class FuncionarioDao {
     public Connection con;
     public Statement st;
     public ResultSet resultado = null;
@@ -19,11 +19,11 @@ public class ClientesDao {
      *
      * @param con
      */
-    public ClientesDao(Connection con) {
+    public FuncionarioDao(Connection con) {
         this.con = con;
     }
     
-    public void insert(Clientes clientes)throws SQLException{
+    public void insert(Funcionarios funcionarios)throws SQLException{
         try {
                      con = DriverManager.getConnection("jdbc:mysql://localhost:3306/projetopi", "root", "");
                      st = (Statement) con.createStatement();
@@ -33,7 +33,7 @@ public class ClientesDao {
         }
          
                  
-        String sql = "insert into clientes (nome, cpf, email, telefone) values ('"+ clientes.getNome() +"', '"+ clientes.getCpf() +"', '"+ clientes.getEmail()+"', '"+ clientes.getTelefone() +"');";
+        String sql = "insert into funcionarios (nome, email, telefone) values ('"+ funcionarios.getNome() +"', '"+ funcionarios.getEmail()+"', '"+ funcionarios.getTelefone() +"');";
                  
         try {
             st = con.prepareStatement(sql);

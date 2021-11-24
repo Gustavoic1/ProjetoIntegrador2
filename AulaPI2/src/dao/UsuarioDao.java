@@ -6,9 +6,12 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
+import model.Funcionarios;
 import model.Usuario;
 
 /**
@@ -25,10 +28,26 @@ public class UsuarioDao {
         this.con = con;
     }
     
- public void insert(Usuario usuario)throws SQLException{
+ public void insert(Funcionarios funcionario)throws SQLException{
    
-     String sql = "insert into login (usuario, senha) values ('"+usuario.getUsuario()+"', '"+usuario.getSenha()+"'); ";
-     st = con.prepareStatement(sql);
+      try {
+                     con = DriverManager.getConnection("jdbc:mysql://localhost:3306/projetopi", "root", "");
+                     st = (Statement) con.createStatement();
+                     //JOptionPane.showMessageDialog(null,"Conectado com sucesso");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "não Conectado");
+        }
+         
+          String sql = "insert into login (usuario, senha) values ('"+funcionario.getLogin()+"', '"+funcionario.getSenha()+"'); ";       
+        //String sql = "insert into funcionarios (nome, email, telefone) values ('"+ funcionarios.getNome() +"', '"+ funcionarios.getEmail()+"', '"+ funcionarios.getTelefone() +"');";
+                 
+        try {
+            st = con.prepareStatement(sql);
+             st.execute(sql);
+             con.close(); 
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
 
     }
 
