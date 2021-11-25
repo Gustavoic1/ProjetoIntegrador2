@@ -15,10 +15,7 @@ public class FuncionarioDao {
     public Statement st;
     public ResultSet resultado = null;
     
-    /**
-     *
-     * @param con
-     */
+
     public FuncionarioDao(Connection con) {
         this.con = con;
     }
