@@ -54,7 +54,7 @@ public class Fr_Cad_Funcionarios extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        pdv = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -221,7 +221,7 @@ public class Fr_Cad_Funcionarios extends javax.swing.JFrame {
                         .addContainerGap())))
         );
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        pdv.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -237,8 +237,8 @@ public class Fr_Cad_Funcionarios extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jScrollPane3.setViewportView(jTable2);
+        pdv.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jScrollPane3.setViewportView(pdv);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -434,7 +434,7 @@ public class Fr_Cad_Funcionarios extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable pdv;
     // End of variables declaration//GEN-END:variables
 }
