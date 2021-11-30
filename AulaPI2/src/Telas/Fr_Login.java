@@ -6,6 +6,7 @@
 package Telas;
 
 import controller.LoginController;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -70,7 +71,7 @@ public class Fr_Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(153, 102, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OctoWear", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "OctoWear", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Cantarell", 0, 15), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel1.setForeground(new java.awt.Color(0, 0, 204));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -85,6 +86,11 @@ public class Fr_Login extends javax.swing.JFrame {
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField1ActionPerformed(evt);
+            }
+        });
+        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordField1KeyPressed(evt);
             }
         });
 
@@ -207,6 +213,18 @@ public class Fr_Login extends javax.swing.JFrame {
             Logger.getLogger(Fr_Login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_EntrarActionPerformed
+
+    private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
+        if(evt.getKeyCode()== KeyEvent.VK_ENTER) {
+        try {
+            controller.autenticar();
+             Fr_Login.this.dispose();
+        } catch (SQLException ex) {
+            Logger.getLogger(Fr_Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        }
+    }//GEN-LAST:event_jPasswordField1KeyPressed
     
     
     
