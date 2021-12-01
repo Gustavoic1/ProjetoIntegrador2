@@ -50,23 +50,11 @@
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jPanel5" min="-2" pref="145" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
-                          <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                          <Component id="choice1" min="-2" pref="233" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="choice2" min="-2" pref="207" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
-                          <Component id="choice3" min="-2" pref="317" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jScrollPane1" max="32767" attributes="0"/>
+                      <Component id="jPanel2" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -74,15 +62,9 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="jPanel5" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="choice1" min="-2" max="-2" attributes="0"/>
-                      <Component id="choice2" min="-2" max="-2" attributes="0"/>
-                      <Component id="choice3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="227" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -131,7 +113,7 @@
                       <Component id="jButton7" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jButton8" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="115" max="32767" attributes="0"/>
+                      <EmptySpace pref="116" max="32767" attributes="0"/>
                       <Component id="jButton4" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -296,7 +278,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="601" max="32767" attributes="0"/>
+                      <EmptySpace pref="342" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -342,22 +324,22 @@
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="3" rowCount="4">
                     <Column editable="true" title="Data" type="java.lang.String">
-                      <Data value="null"/>
-                      <Data value="08/11/2021"/>
-                      <Data value="10/11/2021"/>
-                      <Data value="12/11/2021"/>
+                      <Data value="24/11/2021"/>
+                      <Data value="24/11/2021"/>
+                      <Data value="25/11/2021"/>
+                      <Data value="27/11/2021"/>
                     </Column>
-                    <Column editable="true" title="C&#xf3;d. Ref" type="java.lang.String">
-                      <Data value="null"/>
-                      <Data value="11111"/>
-                      <Data value="22222"/>
-                      <Data value="33333"/>
-                    </Column>
-                    <Column editable="true" title="Qtd" type="java.lang.String">
-                      <Data value="null"/>
+                    <Column editable="true" title="C&#xf3;d. Ref" type="java.lang.Short">
                       <Data value="1"/>
                       <Data value="2"/>
-                      <Data value="null"/>
+                      <Data value="3"/>
+                      <Data value="4"/>
+                    </Column>
+                    <Column editable="true" title="Valor" type="java.lang.Double">
+                      <Data value="642.4"/>
+                      <Data value="427.5"/>
+                      <Data value="270.9"/>
+                      <Data value="456.0"/>
                     </Column>
                   </Table>
                 </Property>
@@ -394,12 +376,6 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="java.awt.Choice" name="choice1">
-        </Component>
-        <Component class="java.awt.Choice" name="choice2">
-        </Component>
-        <Component class="java.awt.Choice" name="choice3">
-        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

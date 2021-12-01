@@ -474,7 +474,7 @@ public class Fr_Cad_Funcionarios extends javax.swing.JFrame {
  
         
     }
-
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ConfirmSenhaFunc;
