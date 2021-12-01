@@ -6,8 +6,14 @@
 package Telas;
 
 import controller.CadastroProdutoController;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,6 +24,9 @@ public class Fr_Cad_Produto extends javax.swing.JFrame {
    private final CadastroProdutoController controller;
     public Fr_Cad_Produto() {
         initComponents();
+        
+        carregarTabela();
+        
         controller = new CadastroProdutoController(this);
     }
 
@@ -143,6 +152,12 @@ public class Fr_Cad_Produto extends javax.swing.JFrame {
             }
         });
 
+        PesqProd.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                PesqProdKeyReleased(evt);
+            }
+        });
+
         jButton5.setBackground(new java.awt.Color(204, 204, 255));
         jButton5.setText("Pesquisar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -166,15 +181,15 @@ public class Fr_Cad_Produto extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Codigo", "Produto", "Quantidade"
+                "Produto", "Quantidade", "Preço"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.Short.class, java.lang.String.class, java.lang.Short.class
+            boolean[] canEdit = new boolean [] {
+                false, false, false
             };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         jScrollPane1.setViewportView(jTable1);
@@ -316,6 +331,8 @@ public class Fr_Cad_Produto extends javax.swing.JFrame {
         
         controller.salvaProdutos();
         
+        carregarTabela();
+        
         limparCampo();
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -330,13 +347,17 @@ public class Fr_Cad_Produto extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        pesquisarTabela();
          limparCampo();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void PrecCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrecCompraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PrecCompraActionPerformed
+
+    private void PesqProdKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PesqProdKeyReleased
+       
+    }//GEN-LAST:event_PesqProdKeyReleased
 
     /**
      * @param args the command line arguments
@@ -431,7 +452,70 @@ public class Fr_Cad_Produto extends javax.swing.JFrame {
     QtdProd.setText(null);
     Prod.setText(null);
     }
-
+    
+    private void pesquisarTabela(){
+    
+            try{
+        
+        try (Connection con = (Connection)DriverManager.getConnection("jdbc:mysql://localhost:3306/projetopi", "root", ""); PreparedStatement banco = (PreparedStatement)con.prepareStatement("Select * from produtos where produto like '" + PesqProd.getText().toString() +"%';")) {
+            banco.execute(); // cria o vetor
+            String pesq = PesqProd.getText();
+            ResultSet resultado = banco.executeQuery("Select * from produtos where produto like '" + pesq +"%';");
+            
+            DefaultTableModel model =(DefaultTableModel) jTable1.getModel();
+            model.setNumRows(0);
+            
+            while(resultado.next())
+            {
+                model.addRow(new Object[]
+                {
+                    //retorna os dados da tabela do BD, cada campo e um coluna.
+                    resultado.getString("produto"),
+                    resultado.getInt("quantidade"),
+                    resultado.getDouble("preco_venda")
+                });
+            }
+        }
+  }
+                     catch (SQLException ex)
+ {
+                System.out.println("o erro foi " +ex);
+  }
+ 
+        
+    }
+    
+    private void carregarTabela(){
+        
+    try{
+        
+        try (Connection con = (Connection)DriverManager.getConnection("jdbc:mysql://localhost:3306/projetopi", "root", ""); PreparedStatement banco = (PreparedStatement)con.prepareStatement("Select * from produtos;")) {
+            banco.execute(); // cria o vetor
+            
+            ResultSet resultado = banco.executeQuery("Select * from produtos;");
+            
+            DefaultTableModel model =(DefaultTableModel) jTable1.getModel();
+            model.setNumRows(0);
+            
+            while(resultado.next())
+            {
+                model.addRow(new Object[]
+                {
+                    //retorna os dados da tabela do BD, cada campo e um coluna.
+                    resultado.getString("produto"),
+                    resultado.getInt("quantidade"),
+                    resultado.getDouble("preco_venda")
+                });
+            }
+        }
+  }
+ catch (SQLException ex)
+ {
+    System.out.println("o erro foi " +ex);
+  }
+ 
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> FornecedorProd;

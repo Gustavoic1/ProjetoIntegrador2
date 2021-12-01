@@ -7,9 +7,13 @@ package Telas;
 
 import controller.CadastroClienteController;
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 
 
@@ -29,6 +33,7 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
     public Fr_Cad_Clientes() {
         initComponents();
         controller = new CadastroClienteController(this);
+        carregarTabela();
     }
 
     /**
@@ -43,10 +48,8 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
-        campoPesquisar = new javax.swing.JTextField();
+        pesq = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
         jPanel12 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         campoImagemCliente = new javax.swing.JLabel();
@@ -63,6 +66,8 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
         campoMasculino = new javax.swing.JRadioButton();
         campoFeminino = new javax.swing.JRadioButton();
         botaoSalvar1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Tabela = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -79,6 +84,12 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
 
         jPanel7.setBackground(new java.awt.Color(204, 204, 255));
 
+        pesq.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                pesqKeyReleased(evt);
+            }
+        });
+
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pesquisar.png"))); // NOI18N
 
@@ -90,53 +101,17 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(campoPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pesq, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(campoPesquisar)
+                .addComponent(pesq)
                 .addContainerGap())
             .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Cpf", "Nome", "Telefone", "e-mail"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(jTable3);
 
         jPanel12.setBackground(new java.awt.Color(204, 204, 255));
         jPanel12.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -307,14 +282,28 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
             }
         });
 
+        Tabela.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nome", "CPF", "E-mail", "Telefone"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(Tabela);
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
             .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -333,6 +322,10 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
                     .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(93, 93, 93))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -350,8 +343,9 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
                         .addComponent(botaoSalvar)
                         .addComponent(botaoSalvar1))
                     .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(218, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -410,9 +404,40 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
     private void botaoSalvar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvar1ActionPerformed
          // TODO add your handling code here:
         controller.salvaCliente(); 
-        
+        carregarTabela();
         limparCampo();         
     }//GEN-LAST:event_botaoSalvar1ActionPerformed
+
+    private void pesqKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pesqKeyReleased
+       
+        try{
+        
+        try (Connection con = (Connection)DriverManager.getConnection("jdbc:mysql://localhost:3306/projetopi", "root", ""); PreparedStatement banco = (PreparedStatement)con.prepareStatement("Select * from clientes where nome like '" + pesq.getText().toString() +"%';")) {
+            banco.execute(); // cria o vetor
+            ResultSet resultado = banco.executeQuery("Select * from clientes where nome like '" + pesq.getText().toString() +"%';");
+            
+            DefaultTableModel model =(DefaultTableModel) Tabela.getModel();
+            model.setNumRows(0);
+            
+            while(resultado.next())
+            {
+                model.addRow(new Object[]
+                {
+                    //retorna os dados da tabela do BD, cada campo e um coluna.
+                    resultado.getString("nome"),
+                    resultado.getString("cpf"),
+                    resultado.getString("email"),
+                    resultado.getString("telefone"),
+                });
+            }
+        }
+                } catch (SQLException ex)
+                {
+                System.out.println("o erro foi " +ex);
+                }
+ 
+        
+    }//GEN-LAST:event_pesqKeyReleased
 
     /**
      * @param args the command line arguments
@@ -489,15 +514,46 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
     telefonecliente.setText(null);
     }
     
+    private void carregarTabela(){
+        
+        try{
+        
+        try (Connection con = (Connection)DriverManager.getConnection("jdbc:mysql://localhost:3306/projetopi", "root", ""); PreparedStatement banco = (PreparedStatement)con.prepareStatement("Select * from clientes;")) {
+            banco.execute(); // cria o vetor
+            ResultSet resultado = banco.executeQuery("Select * from clientes;");
+            
+            DefaultTableModel model =(DefaultTableModel) Tabela.getModel();
+            model.setNumRows(0);
+            
+            while(resultado.next())
+            {
+                model.addRow(new Object[]
+                {
+                    //retorna os dados da tabela do BD, cada campo e um coluna.
+                    resultado.getString("nome"),
+                    resultado.getString("cpf"),
+                    resultado.getString("email"),
+                    resultado.getString("telefone"),
+                });
+            }
+        }
+                } catch (SQLException ex)
+                {
+                System.out.println("o erro foi " +ex);
+                }
+ 
+        
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable Tabela;
     private javax.swing.JButton botaoExcluir;
     private javax.swing.JButton botaoSalvar;
     private javax.swing.JButton botaoSalvar1;
     private javax.swing.JRadioButton campoFeminino;
     private javax.swing.JLabel campoImagemCliente;
     private javax.swing.JRadioButton campoMasculino;
-    private javax.swing.JTextField campoPesquisar;
     private javax.swing.JTextField cpfcliente;
     private javax.swing.JTextField emailcliente;
     private javax.swing.JLabel jLabel10;
@@ -511,8 +567,8 @@ public class Fr_Cad_Clientes extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTextField nomecliente;
+    private javax.swing.JTextField pesq;
     private javax.swing.JTextField telefonecliente;
     // End of variables declaration//GEN-END:variables
 }
