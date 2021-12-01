@@ -57,10 +57,10 @@ public class Fr_Cad_Produto extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         PesqProd = new javax.swing.JTextField();
-        jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -158,14 +158,6 @@ public class Fr_Cad_Produto extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(204, 204, 255));
-        jButton5.setText("Pesquisar");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
         jButton6.setBackground(new java.awt.Color(204, 204, 255));
         jButton6.setText("Sair");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -194,6 +186,8 @@ public class Fr_Cad_Produto extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pesquisar.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -201,7 +195,6 @@ public class Fr_Cad_Produto extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(70, 70, 70)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 769, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel4)
@@ -217,11 +210,7 @@ public class Fr_Cad_Produto extends javax.swing.JFrame {
                                 .addGap(42, 42, 42)
                                 .addComponent(jButton4)
                                 .addGap(38, 38, 38)
-                                .addComponent(jButton6)
-                                .addGap(60, 60, 60)
-                                .addComponent(jButton5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(PesqProd, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jButton6))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addGap(37, 37, 37)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -237,7 +226,13 @@ public class Fr_Cad_Produto extends javax.swing.JFrame {
                                         .addComponent(jLabel7)
                                         .addGap(34, 34, 34)
                                         .addComponent(FornecedorProd, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(12, 12, 12)))))
+                                .addGap(12, 12, 12))))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, 0)
+                            .addComponent(PesqProd, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 769, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(43, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(67, 67, 67)
@@ -270,8 +265,8 @@ public class Fr_Cad_Produto extends javax.swing.JFrame {
                     .addComponent(jButton3)
                     .addComponent(jButton2)
                     .addComponent(PesqProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6))
+                    .addComponent(jButton6)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(42, Short.MAX_VALUE))
@@ -346,17 +341,38 @@ public class Fr_Cad_Produto extends javax.swing.JFrame {
          limparCampo();
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        pesquisarTabela();
-         limparCampo();
-    }//GEN-LAST:event_jButton5ActionPerformed
-
     private void PrecCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrecCompraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PrecCompraActionPerformed
 
     private void PesqProdKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PesqProdKeyReleased
-       
+       try{
+        
+        try (Connection con = (Connection)DriverManager.getConnection("jdbc:mysql://localhost:3306/projetopi", "root", ""); PreparedStatement banco = (PreparedStatement)con.prepareStatement("Select * from produtos where produto like '" + PesqProd.getText().toString() +"%';")) {
+            banco.execute(); // cria o vetor
+            String pesq = PesqProd.getText();
+            ResultSet resultado = banco.executeQuery("Select * from produtos where produto like '" + pesq +"%';");
+            
+            DefaultTableModel model =(DefaultTableModel) jTable1.getModel();
+            model.setNumRows(0);
+            
+            while(resultado.next())
+            {
+                model.addRow(new Object[]
+                {
+                    //retorna os dados da tabela do BD, cada campo e um coluna.
+                    resultado.getString("produto"),
+                    resultado.getInt("quantidade"),
+                    resultado.getDouble("preco_venda")
+                });
+            }
+        }
+  }
+                     catch (SQLException ex)
+ {
+                System.out.println("o erro foi " +ex);
+  }
+
     }//GEN-LAST:event_PesqProdKeyReleased
 
     /**
@@ -528,8 +544,8 @@ public class Fr_Cad_Produto extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -5,6 +5,11 @@
  */
 package Telas;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -17,6 +22,7 @@ public class Fr_Vendas extends javax.swing.JFrame {
      */
     public Fr_Vendas() {
         initComponents();
+        carregarTabela();
     }
 
     /**
@@ -373,6 +379,40 @@ public class Fr_Vendas extends javax.swing.JFrame {
             }
         });
     }
+    
+    private void carregarTabela(){
+        
+    try{
+        
+        try (Connection con = (Connection)DriverManager.getConnection("jdbc:mysql://localhost:3306/projetopi", "root", ""); PreparedStatement banco = (PreparedStatement)con.prepareStatement("Select * from produtos;")) {
+            banco.execute(); // cria o vetor
+            
+            ResultSet resultado = banco.executeQuery("Select * from produtos;");
+            
+            DefaultTableModel model =(DefaultTableModel) jTable1.getModel();
+            model.setNumRows(0);
+            
+            while(resultado.next())
+            {
+                model.addRow(new Object[]
+                {
+                    //retorna os dados da tabela do BD, cada campo e um coluna.
+                    resultado.getInt("id"),
+                    resultado.getString("produto"),
+                    resultado.getDouble("preco_venda"),
+                    resultado.getInt("quantidade")
+                });
+            }
+        }
+  }
+ catch (SQLException ex)
+ {
+    System.out.println("o erro foi " +ex);
+  }
+ 
+        
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton4;
